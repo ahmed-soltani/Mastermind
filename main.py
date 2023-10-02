@@ -16,7 +16,7 @@ def generate_code():
 def guess_code():
 
 	while True:
-		guess = input("Guess:\n").upper().split(" ")
+		guess = input("Guess:\n").upper().strip().split(" ")
 
 		if len(guess) != CODE_LENGTH:
 			print(f"You must guess {CODE_LENGTH} colors.")
@@ -55,7 +55,7 @@ def check_code(guess, real_code):
 def game():
 	print(f"Welcome to MasterMind!\nYou have {TRIES} to guess the code...")
 	print("The valid colors are", *COLORS)
-	print("Write your answer follwing this example:'W W W w'\nBe careful of the whitespaces before the first characters")
+	print("Write your answer follwing this example:'W W W W'\nBoth upper and lowercase characters are accepted.")
 	code = generate_code()
 	for attempts in range(1, TRIES + 1):
 		guess = guess_code()
